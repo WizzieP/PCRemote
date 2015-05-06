@@ -1,22 +1,24 @@
 package me.wizziee.pilot.server;
 
+import java.util.HashMap;
 import java.util.Map;
 
-public class CommandData {
+public final class CommandData {
     private String name;
     private Map<String, Object> params;
 
-    public Map<String, Object> getParams() {
-        return params;
+    public CommandData(){}
+
+    public CommandData(String name, Map<String, Object> params){
+        this.name = name;
+        this.params = new HashMap<>(params);
     }
-    public void setParams(Map<String, Object> params) {
-        this.params = params;
+
+    public Map<String, Object> getParams() {
+        return new HashMap<>(params);
     }
 
     public String getName() {
         return name;
-    }
-    public void setName(String name) {
-        this.name = name;
     }
 }
